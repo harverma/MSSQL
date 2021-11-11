@@ -11,5 +11,6 @@ Invoke-Expression -Command $command
 sleep -s 10
 net start SQLSERVERAGENT
 Set-Service SQLSERVERAGENT -StartupType Automatic
+sleep -s 15
 net start SQLBrowser
 Set-Service SQLBrowser -StartupType Automatic
