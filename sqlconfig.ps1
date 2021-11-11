@@ -8,9 +8,8 @@ $configfile = "C:\MSSQL2019\configuration.ini"
 $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
 sleep -s 5
 Invoke-Expression -Command $command
-net start SQLBrowser
+sleep -s 10
 net start SQLSERVERAGENT
-Set-Service SQLBrowser -StartupType Automatic
 Set-Service SQLSERVERAGENT -StartupType Automatic
-
-
+net start SQLBrowser
+Set-Service SQLBrowser -StartupType Automatic
