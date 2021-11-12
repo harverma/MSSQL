@@ -14,3 +14,6 @@
 
   - name: Run remote PowerShell Script
     win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1
+    
+  - name: Run remote PowerShell Script
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlinstall.ps1
