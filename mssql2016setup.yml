@@ -8,7 +8,7 @@
 
   - name: Copy File
     win_copy:
-      src: '/root/ansible/files/MSSQL2019/'
+      src: '/var/lib/jenkins/workspace/SQL2019/setupfiles/'
       dest: C:\MSSQL2019\
       remote_src: no
 
