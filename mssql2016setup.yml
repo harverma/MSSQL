@@ -14,6 +14,11 @@
 
   - name: Run remote PowerShell Script
     win_shell: -File C:\MSSQL2019\sqlconfig.ps1 >> C:\MSSQL2019\out.txt
-    
-  - name: Run remote PowerShell Script
-    win_shell: -File C:\MSSQL2019\sqlinstall.ps1 >> C:\MSSQL2019\out.txt
+   
+  - name: Run multi-lined shell commands
+    win_shell: |
+        C:\MSSQL2019\SW_DVD9_SQL_Svr_Enterprise_Edtn_2019Dec2019_64Bit_English_MLF_X22-22247.ISO
+        sleep -s 5
+        $configfile = "C:\MSSQL2019\configuration.ini"
+        $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
+        Invoke-Expression -Command $command   
