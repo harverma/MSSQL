@@ -18,4 +18,12 @@
   - name: Run multi-lined shell commands
     win_shell: |
         C:\MSSQL2019\SW_DVD9_SQL_Svr_Enterprise_Edtn_2019Dec2019_64Bit_English_MLF_X22-22247.ISO
-        sleep -s 5 
+        sleep -s 5
+        $configfile = "C:\MSSQL2019\configuration.ini"
+        $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
+        
+  - name: Run remote PowerShell Script
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlsetup.ps1        
+        
+        
+        
