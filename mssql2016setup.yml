@@ -13,7 +13,7 @@
       remote_src: no
 
   - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1 
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1 >> C:\MSSQL2019\out.txt
    
   - name: Run multi-lined shell commands
     win_shell: |
@@ -23,7 +23,7 @@
         $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
         
   - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlsetup.ps1        
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlsetup.ps1  >> >> C:\MSSQL2019\out.txt     
         
         
         
