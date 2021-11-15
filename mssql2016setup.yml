@@ -4,6 +4,7 @@
   - name: Create directory structure
     win_file:
       path: C:\MSSQL2019
+      path: C:\SSMS
       state: directory
 
   - name: Copy File
@@ -13,7 +14,7 @@
       remote_src: no
 
   - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1 -vvv
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1
     
   - name: Run multi-lined shell commands
     win_shell: |
@@ -25,4 +26,7 @@
         Set-Service SQLSERVERAGENT -StartupType Automatic
         net start SQLSERVERAGENT
         
+  - name: Run multi-lined shell commands
+    win_shell: |
+        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait        
         
