@@ -1,11 +1,6 @@
-[linux:vars]
-ansible_connection=ssh
-ansible_ssh_user=root
-ansible_ssh_pass=control*88
-
 [windows:vars]
-ansible_user=Administrator
-ansible_password="capture*99"
+ansible_user=hverma@simpsons.qa
+ansible_password="Idera*237723"
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
 ansible_port=5986
@@ -15,5 +10,3 @@ ansible_winrm_kerberos_delegation=true
 
 [windows]
 10.220.201.37
-
-[linux]
