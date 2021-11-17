@@ -1,6 +1,6 @@
 [windows:vars]
-ansible_user=hverma@simpsons.qa
-ansible_password="Idera*237723"
+ansible_user=administrator
+ansible_password="capture*99"
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
 ansible_port=5986
