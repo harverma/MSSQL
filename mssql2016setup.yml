@@ -3,22 +3,22 @@
   tasks:
   - name: Create directory structure
     win_file:
-      path: C:\MSSQL2019
+      path: C:\MSSQL2016
       path: C:\SSMS
       state: directory
 
   - name: Copy File
     win_copy:
-      src: '/var/lib/jenkins/workspace/SQL2019/setupfiles/'
-      dest: C:\MSSQL2019\
+      src: '/var/lib/jenkins/workspace/SQL2016/setupfiles/'
+      dest: C:\MSSQL2016\
       remote_src: no
 
   - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2016\sqlconfig.ps1
     
   - name: Run multi-lined shell commands
     win_shell: |
-        $configfile = "C:\MSSQL2019\configuration.ini"
+        $configfile = "C:\MSSQL2016\configuration.ini"
         $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
         Set-Service SQLBrowser -StartupType Automatic
@@ -28,5 +28,4 @@
         
   - name: Run multi-lined shell commands
     win_shell: |
-        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait        
-        
+        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait
