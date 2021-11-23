@@ -14,7 +14,7 @@
       remote_src: no
 
   - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2019\sqlconfig.ps1
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2017\sqlconfig.ps1
     
   - name: Run multi-lined shell commands
     win_shell: |
