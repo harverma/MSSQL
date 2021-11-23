@@ -3,14 +3,14 @@
   tasks:
   - name: Create directory structure
     win_file:
-      path: C:\MSSQL2019
+      path: C:\MSSQL2017
       path: C:\SSMS
       state: directory
 
   - name: Copy File
     win_copy:
-      src: '/var/lib/jenkins/workspace/SQL2019/setupfiles/'
-      dest: C:\MSSQL2019\
+      src: '/var/lib/jenkins/workspace/2019/setupfiles/'
+      dest: C:\MSSQL2017\
       remote_src: no
 
   - name: Run remote PowerShell Script
@@ -18,13 +18,9 @@
     
   - name: Run multi-lined shell commands
     win_shell: |
-        $configfile = "C:\MSSQL2019\configuration.ini"
+        $configfile = "C:\MSSQL2017\configuration.ini"
         $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
-        Set-Service SQLBrowser -StartupType Automatic
-        net start SQLBrowser
-        Set-Service SQLSERVERAGENT -StartupType Automatic
-        net start SQLSERVERAGENT
         
   - name: Run multi-lined shell commands
     win_shell: |
