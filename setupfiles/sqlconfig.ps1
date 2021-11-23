@@ -1,4 +1,4 @@
-robocopy  '\\172.20.32.12\Software\Software\Microsoft Software\SQL Server 2019\Enterprise Edition'  'C:\MSSQL2019\'
+robocopy  '\\172.20.32.12\Software\Software\Microsoft Software\MSSQL Automation\2016'  'C:\MSSQL2016\'
 robocopy  '\\172.20.32.12\Software\Software\Microsoft Software\SSMS' 'C:\SSMS\'
-C:\MSSQL2019\SW_DVD9_SQL_Svr_Enterprise_Edtn_2019Dec2019_64Bit_English_MLF_X22-22247.ISO
+C:\MSSQL2016\en_sql_server_2016_enterprise_with_service_pack_2_x64_dvd_12124051.iso
 sllep -s 5
