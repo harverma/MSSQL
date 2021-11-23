@@ -21,10 +21,6 @@
         $configfile = "C:\MSSQL2016\configuration.ini"
         $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
-        Set-Service SQLBrowser -StartupType Automatic
-        net start SQLBrowser
-        Set-Service SQLSERVERAGENT -StartupType Automatic
-        net start SQLSERVERAGENT
         
   - name: Run multi-lined shell commands
     win_shell: |
