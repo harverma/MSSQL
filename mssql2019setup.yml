@@ -25,6 +25,9 @@
         net start SQLBrowser
         Set-Service SQLSERVERAGENT -StartupType Automatic
         net start SQLSERVERAGENT
+        Invoke-Sqlcmd -InputFile "C:\MSSQL2019\saenb.sql"
+        net stop MSSQLSERVER
+        net start MSSQLSERVER
         
   - name: Run multi-lined shell commands
     win_shell: |
