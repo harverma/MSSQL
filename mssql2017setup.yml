@@ -21,6 +21,9 @@
         $configfile = "C:\MSSQL2017\configuration.ini"
         $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
+        Invoke-Sqlcmd -InputFile "C:\MSSQL2017\saenb.sql"
+        net stop MSSQLSERVER
+        net start MSSQLSERVER
         
   - name: Run multi-lined shell commands
     win_shell: |
