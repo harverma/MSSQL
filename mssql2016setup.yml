@@ -22,7 +22,7 @@
         $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
         Invoke-Sqlcmd -InputFile "C:\MSSQL2016\saenb.sql"
-        net stop MSSQLSERVER
+        net stop MSSQLSERVER /y
         net start MSSQLSERVER
         
   - name: Run multi-lined shell commands
