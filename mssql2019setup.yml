@@ -19,7 +19,7 @@
   - name: Run multi-lined shell commands
     win_shell: |
         $configfile = "C:\MSSQL2019\configuration.ini"
-        $command = "D:\setup.exe /ConfigurationFile=$($configfile)"
+        $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
         Set-Service SQLBrowser -StartupType Automatic
         net start SQLBrowser
