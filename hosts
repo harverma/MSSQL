@@ -1,6 +1,6 @@
 [windows:vars]
-ansible_user=automation
-ansible_password="H2Y9bYAVZg6EAEGY"
+ansible_user=administrator
+ansible_password="control*88"
 ansible_connection=winrm
 ansible_winrm_server_cert_validation=ignore
 ansible_port=5986
