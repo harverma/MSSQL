@@ -28,4 +28,6 @@
   - name: Run multi-lined shell commands
     win_shell: |
         Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait        
-        
+        Invoke-Sqlcmd -InputFile "C:\MSSQL2017\saenb.sql"
+        net stop MSSQLSERVER /y
+        net start MSSQLSERVER
