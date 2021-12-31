@@ -20,7 +20,6 @@
     win_shell: |
         $configfile = "C:\MSSQL2012\configuration.ini"
         $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
-        Invoke-Expression -Command $command
         
   - name: Run multi-lined shell commands
     win_shell: |
