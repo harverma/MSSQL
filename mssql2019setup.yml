@@ -28,3 +28,4 @@
         net stop 'MSSQL$SQL2019' /y
         net start 'MSSQL$SQL2019'
         net start 'SQLAgent$SQL2019'
+        restart-computer
