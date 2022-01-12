@@ -32,4 +32,4 @@
   - name: Run multi-lined shell commands
     win_shell: |
         Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait
-        Restart-Computer
+        Restart-Computer -Force
