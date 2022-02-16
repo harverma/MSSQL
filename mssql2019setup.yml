@@ -20,15 +20,15 @@
     win_shell: |
         $configfile = "C:\MSSQL2019\configuration.ini"
         $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
-        Invoke-Expression -Command $command
-        
-  - name: Run multi-lined shell commands
-    win_shell: |
-        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait        
+        Invoke-Expression -Command $command        
                 
   - name: Run multi-lined shell commands
     win_shell: |
         net stop 'MSSQL$SQL2019' /y
         net start 'MSSQL$SQL2019'
         net start 'SQLAgent$SQL2019'
+        
+  - name: Run multi-lined shell commands
+    win_shell: |
+        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait        
         Restart-Computer -Force
