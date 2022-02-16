@@ -27,6 +27,7 @@
         net stop 'MSSQL$SQL2019' /y
         net start 'MSSQL$SQL2019'
         net start 'SQLAgent$SQL2019'
+        Invoke-Sqlcmd -ServerInstance hostname\SQL2019  -InputFile "C:\MSSQL2019\saenb.sql"
         
   - name: Run multi-lined shell commands
     win_shell: |
