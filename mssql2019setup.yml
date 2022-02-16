@@ -24,6 +24,10 @@
         
   - name: Run multi-lined shell commands
     win_shell: |
+        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait        
+                
+  - name: Run multi-lined shell commands
+    win_shell: |
         net stop 'MSSQL$SQL2019' /y
         net start 'MSSQL$SQL2019'
         net start 'SQLAgent$SQL2019'
