@@ -9,7 +9,7 @@
 
   - name: Copy File
     win_copy:
-      src: '/var/lib/jenkins/workspace/SQL2019/setupfiles/'
+      src: 'setupfiles/'
       dest: C:\MSSQL2019\
       remote_src: no
 
