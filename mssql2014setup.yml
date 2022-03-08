@@ -9,7 +9,7 @@
 
   - name: Copy File
     win_copy:
-      src: '/var/lib/jenkins/workspace/SQL2014/setupfiles/'
+      src: 'setupfiles/'
       dest: C:\MSSQL2014\
       remote_src: no
 
@@ -21,16 +21,14 @@
         $configfile = "C:\MSSQL2014\configuration.ini"
         $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
-        Set-Service SQLBrowser -StartupType Automatic
-        net start SQLBrowser
-        Set-Service SQLSERVERAGENT -StartupType Automatic
-        net start SQLSERVERAGENT
+        
 
         
   - name: Run multi-lined shell commands
     win_shell: |
-        Start-Process C:\SSMS\SSMS-Setup-ENU-01.exe -ArgumentList '/install','/passive', '/promptrestart' -Wait 
         Invoke-Sqlcmd -InputFile "C:\MSSQL2014\saenb.sql"
-        net stop MSSQLSERVER /y
-        net start MSSQLSERVER
+        net stop MSSQL$SQL2014 /y
+        net start MSSQL$SQL2014
+        net start 'SQLAgent$SQL2016'
+        Restart-Computer -Force
         
