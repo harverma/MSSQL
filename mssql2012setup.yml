@@ -26,4 +26,3 @@
         net stop 'MSSQL$SQL2012' /y
         net start 'MSSQL$SQL2012'
         net start 'SQLAgent$SQL2012'
-        Restart-Computer -Force
