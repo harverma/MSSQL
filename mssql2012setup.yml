@@ -15,6 +15,7 @@
 
   - name: Run remote PowerShell Script
     win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2012\sqlconfig.ps1
+  
         $configfile = "C:\MSSQL2012\configuration.ini"
         $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
