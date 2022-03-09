@@ -1,6 +1,4 @@
----
-- hosts: windows
-  tasks:
+tasks:
   - name: Create directory structure
     win_file:
       path: C:\MSSQL2012
@@ -15,7 +13,9 @@
 
   - name: Run remote PowerShell Script
     win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2012\sqlconfig.ps1
-  
+
+  - name: Run multi-lined shell commands
+    win_shell: |
         $configfile = "C:\MSSQL2012\configuration.ini"
         $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
@@ -26,3 +26,4 @@
         net stop 'MSSQL$SQL2012' /y
         net start 'MSSQL$SQL2012'
         net start 'SQLAgent$SQL2012'
+        Restart-Computer -Force
