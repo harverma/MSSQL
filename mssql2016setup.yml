@@ -3,29 +3,29 @@
   tasks:
   - name: Create directory structure
     win_file:
-      path: C:\MSSQL2016
+      path: C:\MSSQL2012
       path: C:\SSMS
       state: directory
 
   - name: Copy File
     win_copy:
       src: 'setupfiles/'
-      dest: C:\MSSQL2016\
+      dest: C:\MSSQL2012\
       remote_src: no
 
   - name: Run remote PowerShell Script
-    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2016\sqlconfig.ps1
-    
+    win_command: powershell.exe -ExecutionPolicy ByPass -File C:\MSSQL2012\sqlconfig.ps1
+
   - name: Run multi-lined shell commands
     win_shell: |
-        $configfile = "C:\MSSQL2016\configuration.ini"
+        $configfile = "C:\MSSQL2012\configuration.ini"
         $command = "E:\setup.exe /ConfigurationFile=$($configfile)"
         Invoke-Expression -Command $command
         
   - name: Run multi-lined shell commands
     win_shell: |
-        Invoke-Sqlcmd -ServerInstance hostname\SQL2016  -InputFile "C:\MSSQL2016\saenb.sql"
-        net stop 'MSSQL$SQL2016' /y
-        net start 'MSSQL$SQL2016'
-        net start 'SQLAgent$SQL2016'
+        Invoke-Sqlcmd -ServerInstance hostname\SQL2012  -InputFile "C:\MSSQL2012\saenb.sql"
+        net stop 'MSSQL$SQL2012' /y
+        net start 'MSSQL$SQL2012'
+        net start 'SQLAgent$SQL2012'
         Restart-Computer -Force
