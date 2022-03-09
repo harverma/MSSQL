@@ -29,6 +29,6 @@
         Invoke-Sqlcmd -InputFile "C:\MSSQL2014\saenb.sql"
         net stop MSSQL$SQL2014 /y
         net start MSSQL$SQL2014
-        net start 'SQLAgent$SQL2016'
+        net start 'SQLAgent$SQL2014'
         Restart-Computer -Force
         
